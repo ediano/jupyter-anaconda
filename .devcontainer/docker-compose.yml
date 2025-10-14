@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  notebook:
+    volumes:
+      - .:/usr/src/app:cached
+    command: sleep infinity

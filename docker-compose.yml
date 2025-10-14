@@ -1,0 +1,28 @@
+services:
+  notebook:
+    build: .
+    container_name: jupyter_anaconda_notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/usr/src/app
+
+  rstudio:
+    image: rocker/verse:4.5
+    container_name: jupyter_anaconda_rstudio
+    ports:
+      - "8787:8787"
+    environment:
+      DISABLE_AUTH: true
+    volumes:
+      - rstudio:/home/rstudio/.config/rstudio
+      - rstudio:/home/rstudio/workspace
+      - rstudio:/other_dir
+
+volumes:
+  rstudio:
+    driver: local
+
+networks:
+  default:
+    name: jupyter_anaconda_network_default
