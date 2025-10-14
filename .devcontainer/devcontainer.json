@@ -1,0 +1,9 @@
+{
+  "name": "Jupyter Anaconda",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "notebook",
+  "workspaceFolder": "/usr/src/app",
+  "postCreateCommand": "./scripts/setup.sh",
+  "forwardPorts": [8888],
+  "postStartCommand": "./scripts/start.sh"
+}

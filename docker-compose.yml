@@ -1,0 +1,16 @@
+services:
+  notebook:
+    build: .
+    container_name: jupyter_anaconda_notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - jupyter_anaconda:/usr/src/app
+
+volumes:
+  jupyter_anaconda:
+    driver: local
+
+networks:
+  default:
+    name: jupyter_anaconda_network_default
